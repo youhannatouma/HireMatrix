@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "gITNYitH3eA=",
+  "success": true,
+  "projectFilePath": "/home/faust/Coding/HireMatrix/HireMatrix.csproj",
+  "expectedPackageFiles": [
+    "/home/faust/.nuget/packages/pdfpig/0.1.14/pdfpig.0.1.14.nupkg.sha512"
+  ],
+  "logs": []
+}
