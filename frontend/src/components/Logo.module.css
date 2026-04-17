@@ -1,0 +1,32 @@
+.logoContainer {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 16px 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.logoContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.starIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.logoText {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+  letter-spacing: -0.5px;
+}
