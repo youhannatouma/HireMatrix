@@ -1,0 +1,178 @@
+.verifyEmail {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 0;
+}
+
+.verificationContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
+}
+
+.verificationCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.iconContainer {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.successIcon,
+.checkIcon {
+  width: 64px;
+  height: 64px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.verificationCard h2 {
+  text-align: center;
+  color: #1f2937;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 16px;
+  color: #0084ff;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.instruction {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.instruction strong {
+  color: #374151;
+  word-break: break-all;
+}
+
+.checkButton {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 300px;
+}
+
+.checkButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 132, 255, 0.3);
+}
+
+.checkButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.checkButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+@media (max-width: 768px) {
+  .verificationCard {
+    padding: 40px 30px;
+  }
+
+  .verificationCard h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .message {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .verificationContent {
+    padding: 15px;
+  }
+
+  .verificationCard {
+    padding: 30px 20px;
+    border-radius: 10px;
+  }
+
+  .verificationCard h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+
+  .instruction {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+
+  .checkButton {
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .verificationCard {
+    padding: 25px 15px;
+  }
+
+  .verificationCard h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .iconContainer {
+    margin-bottom: 20px;
+  }
+
+  .successIcon,
+  .checkIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .message {
+    font-size: 13px;
+  }
+
+  .instruction {
+    font-size: 12px;
+  }
+}

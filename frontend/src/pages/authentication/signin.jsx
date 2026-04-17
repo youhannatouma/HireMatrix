@@ -2,6 +2,7 @@ import styles from './Signin.module.css';
 import Logo from '../../components/Logo.jsx';
 
 export default function Signin() {
+
     return (
         <div className={styles.signin}>
             <Logo />

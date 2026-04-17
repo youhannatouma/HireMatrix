@@ -1,9 +1,10 @@
+/* Minimal responsive signup page */
+
 .signup {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 0;
 }
 
 .signupContent {
@@ -11,37 +12,62 @@
   justify-content: center;
   align-items: center;
   flex: 1;
-  padding: 40px 20px;
+  padding: 1rem;
 }
 
 .signupCard {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  padding: 25px 50px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0px 50px;
   width: 100%;
   max-width: 450px;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-height: 1.25rem;
+}
+
+.message.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.message.success {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.message p {
+  margin: 0;
 }
 
 .signupCard h2 {
   text-align: center;
   color: #1f2937;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 }
 
 .signupCard form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
 }
 
 .signupCard label {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 14px;
+  gap: 0.4rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: #374151;
 }
@@ -49,12 +75,12 @@
 .signupCard input[type="text"],
 .signupCard input[type="email"],
 .signupCard input[type="password"] {
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 6px;
+  font-size: 0.875rem;
   font-family: inherit;
-  transition: border-color 0.3s;
+  transition: border-color 0.2s;
 }
 
 .signupCard input[type="text"]:focus,
@@ -62,33 +88,33 @@
 .signupCard input[type="password"]:focus {
   outline: none;
   border-color: #0084ff;
-  box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.1);
+  box-shadow: 0 0 0 2px rgba(0, 132, 255, 0.1);
 }
 
 .signupCard input::placeholder {
   color: #9ca3af;
-  font-size: 13px;
 }
 
 .agreeSection {
   display: flex;
-  gap: 10px;
+  gap: 0.5rem;
   align-items: flex-start;
-  margin: 10px 0;
+  margin: 0.5rem 0;
 }
 
 .agreeSection input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin-top: 3px;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2rem;
   cursor: pointer;
   accent-color: #0084ff;
+  flex-shrink: 0;
 }
 
 .agreeSection p {
-  font-size: 13px;
+  font-size: 0.8rem;
   color: #6b7280;
-  line-height: 1.5;
+  line-height: 1.4;
   margin: 0;
 }
 
@@ -102,32 +128,55 @@
   text-decoration: underline;
 }
 
-.signupCard button[type="submit"] {
-  padding: 14px 20px;
-  background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
-  color: white;
+.signupCard button[type="submit"],
+.signupCard button[type="button"] {
+  padding: 0.75rem 1rem;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 6px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin-top: 10px;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+
+.signupCard button[type="submit"] {
+  background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+  color: white;
+  margin-top: 0.5rem;
 }
 
 .signupCard button[type="submit"]:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 132, 255, 0.3);
+  opacity: 0.9;
 }
 
-.signupCard button[type="submit"]:active {
-  transform: translateY(0);
+.googleButton {
+  background: #ffffff;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: opacity 0.2s;
+}
+
+.googleButton:hover {
+  opacity: 0.95;
+}
+
+.googleButton svg {
+  width: 18px;
+  height: 18px;
 }
 
 .signinLink {
   text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
+  margin-top: 1rem;
+  font-size: 0.875rem;
   color: #6b7280;
 }
 
@@ -135,20 +184,90 @@
   color: #0084ff;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.2s;
 }
 
 .signinLink a:hover {
-  color: #0056b3;
+  text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .signupCard {
-    padding: 40px 25px;
+    padding: 1.5rem;
   }
 
   .signupCard h2 {
-    font-size: 20px;
-    margin-bottom: 25px;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .signupCard form {
+    gap: 0.75rem;
+  }
+
+  .signupCard label {
+    gap: 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .signupCard input[type="text"],
+  .signupCard input[type="email"],
+  .signupCard input[type="password"] {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.875rem;
+  }
+
+  .signupCard button[type="submit"] {
+    font-size: 0.95rem;
+  }
+
+  .agreeSection p {
+    font-size: 0.75rem;
+  }
+
+  .signinLink {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signupContent {
+    padding: 0.5rem;
+  }
+
+  .signupCard {
+    padding: 1rem;
+    border-radius: 6px;
+  }
+
+  .signupCard h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .message {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .signupCard input[type="text"],
+  .signupCard input[type="email"],
+  .signupCard input[type="password"] {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .signupCard button[type="submit"] {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .agreeSection {
+    gap: 0.4rem;
+  }
+
+  .agreeSection input[type="checkbox"] {
+    width: 0.9rem;
+    height: 0.9rem;
   }
 }

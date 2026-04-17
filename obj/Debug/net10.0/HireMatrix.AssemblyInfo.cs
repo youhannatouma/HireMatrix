@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HireMatrix")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b74455898be8d6ea2d5147417e9c18beb94d7cbd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ae5f67a496e6d3d69a0820dedf7fd07c4192b84")]
 [assembly: System.Reflection.AssemblyProductAttribute("HireMatrix")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HireMatrix")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
