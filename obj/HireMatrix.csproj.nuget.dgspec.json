@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/faust/Coding/HireMatrix/HireMatrix.csproj": {}
+    "C:\\Users\\USER\\L3 Semester 2\\I3330\\HireMatrix\\HireMatrix\\HireMatrix.csproj": {}
   },
   "projects": {
-    "/home/faust/Coding/HireMatrix/HireMatrix.csproj": {
+    "C:\\Users\\USER\\L3 Semester 2\\I3330\\HireMatrix\\HireMatrix\\HireMatrix.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/faust/Coding/HireMatrix/HireMatrix.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\L3 Semester 2\\I3330\\HireMatrix\\HireMatrix\\HireMatrix.csproj",
         "projectName": "HireMatrix",
-        "projectPath": "/home/faust/Coding/HireMatrix/HireMatrix.csproj",
-        "packagesPath": "/home/faust/.nuget/packages/",
-        "outputPath": "/home/faust/Coding/HireMatrix/obj/",
+        "projectPath": "C:\\Users\\USER\\L3 Semester 2\\I3330\\HireMatrix\\HireMatrix\\HireMatrix.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\L3 Semester 2\\I3330\\HireMatrix\\HireMatrix\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/faust/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "/usr/lib64/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/10.0.104/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

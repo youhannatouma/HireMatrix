@@ -1,3 +1,4 @@
+// Parsing contract
 namespace HireMatrix.Interface
 {
     public interface IParser

@@ -4,6 +4,7 @@ using HireMatrix.Models;
 
 namespace HireMatrix.Controllers;
 
+// return json instead of views here -> API endpoints
 public class HomeController : Controller
 {
     public IActionResult Index()
