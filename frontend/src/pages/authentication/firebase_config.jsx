@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 //GetAuth Method is used to Configure our app to use Firebase Authentication
-import { getAuth } from "firebase/auth";
+import { getAuth} from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {

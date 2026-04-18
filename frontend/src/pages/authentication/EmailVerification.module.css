@@ -1,9 +1,8 @@
-.verifyEmail {
+.emailVerification {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 0;
 }
 
 .verificationContent {
@@ -11,168 +10,256 @@
   justify-content: center;
   align-items: center;
   flex: 1;
-  padding: 20px;
+  padding: 2rem;
 }
 
 .verificationCard {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  padding: 50px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
   width: 100%;
   max-width: 450px;
-  text-align: center;
 }
 
 .iconContainer {
-  margin-bottom: 30px;
   display: flex;
   justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
-.successIcon,
-.checkIcon {
-  width: 64px;
-  height: 64px;
-  animation: pulse 2s infinite;
+.icon,
+.successIcon {
+  width: 60px;
+  height: 60px;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
+.icon {
+  color: #0084ff;
+}
+
+.successIcon {
+  color: #16a34a;
+  animation: checkmark 0.6s ease-in-out;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
   }
   50% {
-    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
 .verificationCard h2 {
   text-align: center;
   color: #1f2937;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
-.message {
-  font-size: 16px;
-  color: #0084ff;
-  font-weight: 500;
-  margin-bottom: 20px;
-  line-height: 1.5;
+.description {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
 .instruction {
-  font-size: 14px;
+  text-align: center;
   color: #6b7280;
+  font-size: 0.875rem;
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 }
 
-.instruction strong {
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   color: #374151;
-  word-break: break-all;
 }
 
-.checkButton {
-  padding: 14px 20px;
-  background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
-  color: white;
+.form input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #0084ff;
+  box-shadow: 0 0 0 2px rgba(0, 132, 255, 0.1);
+}
+
+.form input::placeholder {
+  color: #9ca3af;
+}
+
+.submitBtn,
+.resendBtn,
+.changeEmailBtn {
+  padding: 0.75rem 1rem;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: opacity 0.2s;
+  margin-top: 0.5rem;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+  color: white;
   width: 100%;
-  max-width: 300px;
 }
 
-.checkButton:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 132, 255, 0.3);
+.submitBtn:hover:not(:disabled) {
+  opacity: 0.9;
 }
 
-.checkButton:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-.checkButton:disabled {
-  opacity: 0.7;
+.submitBtn:disabled {
+  opacity: 0.6;
   cursor: not-allowed;
-  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
 }
 
-@media (max-width: 768px) {
+.resendBtn {
+  background: #ffffff;
+  color: #0084ff;
+  border: 1px solid #0084ff;
+  font-weight: 500;
+  width: 100%;
+}
+
+.resendBtn:hover:not(:disabled) {
+  background-color: #f0f9ff;
+}
+
+.resendBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: #9ca3af;
+  border-color: #d1d5db;
+}
+
+.changeEmailBtn {
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  font-weight: 500;
+  width: 100%;
+}
+
+.changeEmailBtn:hover:not(:disabled) {
+  background-color: #f9fafb;
+}
+
+.sentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.message {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.successMessage {
+  text-align: center;
+  color: #16a34a;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
   .verificationCard {
-    padding: 40px 30px;
+    padding: 1.5rem;
   }
 
   .verificationCard h2 {
-    font-size: 22px;
-    margin-bottom: 18px;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
   }
 
-  .message {
-    font-size: 15px;
+  .icon,
+  .successIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .description,
+  .instruction {
+    font-size: 0.85rem;
+  }
+
+  .form {
+    gap: 0.75rem;
+  }
+
+  .form input {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .submitBtn,
+  .resendBtn,
+  .changeEmailBtn {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .verificationContent {
-    padding: 15px;
+    padding: 1rem;
   }
 
   .verificationCard {
-    padding: 30px 20px;
-    border-radius: 10px;
+    padding: 1rem;
+    border-radius: 6px;
   }
 
   .verificationCard h2 {
-    font-size: 20px;
-    margin-bottom: 16px;
+    font-size: 1.1rem;
   }
 
-  .message {
-    font-size: 14px;
+  .icon,
+  .successIcon {
+    width: 45px;
+    height: 45px;
   }
 
+  .description,
   .instruction {
-    font-size: 13px;
-    margin-bottom: 25px;
-  }
-
-  .checkButton {
-    padding: 12px 18px;
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 400px) {
-  .verificationCard {
-    padding: 25px 15px;
-  }
-
-  .verificationCard h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-
-  .iconContainer {
-    margin-bottom: 20px;
-  }
-
-  .successIcon,
-  .checkIcon {
-    width: 56px;
-    height: 56px;
-  }
-
-  .message {
-    font-size: 13px;
-  }
-
-  .instruction {
-    font-size: 12px;
+    font-size: 0.8rem;
   }
 }

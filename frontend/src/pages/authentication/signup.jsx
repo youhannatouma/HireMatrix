@@ -1,7 +1,7 @@
 import styles from './Signup.module.css';
 import Logo from '../../components/Logo.jsx';
 import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, googleProvider } from './firebase_config';
 import { signInWithPopup, sendEmailVerification } from 'firebase/auth';
@@ -42,9 +42,9 @@ export default function Signup() {
     };
 
     // Redirect to main pages
-    const redirectAfterDelay = (path, delaySeconds) => {
+    const redirectAfterDelay = (path, delaySeconds, stateData) => {
         setTimeout(() => {
-            navigate(path);
+            navigate(path, { state: stateData });
         }, delaySeconds * 1000);
     };
 
@@ -100,8 +100,8 @@ export default function Signup() {
                 setType("Success");
                 // send conf email
                 sendEmailVerification(userCredential.user);
-                // redirect to email confirmation
-                redirectAfterDelay('/email-verification', 2);
+                // redirect to email confirmation -> dashboard
+                redirectAfterDelay('/email-verification', 2, { page: "signup", email: emailRef.current.value });
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -122,27 +122,27 @@ export default function Signup() {
             });
     };
 
-    const handleGoogleSignin = async () => {
-        try {
-            await signInWithPopup(auth, googleProvider);
-            setMessage("Sign up with Google successful");
-            setType("Success");
-            redirectAfterDelay('/background', 2);
-        } catch (error) {
-            // error messages for failure
-            let friendlyError = 'Sign up with Google failed';
-            if (error.code === 'auth/popup-closed-by-user') {
-                friendlyError = 'Google sign-up popup was closed. Please try again.';
-            } else if (error.code === 'auth/popup-blocked') {
-                friendlyError = 'Google sign-up popup was blocked. Please allow popups and try again.';
-            } else if (error.code === 'auth/cancelled-popup-request') {
-                friendlyError = 'Google sign-up was cancelled. Please try again.';
-            } else if (error.code === 'auth/network-request-failed') {
-                friendlyError = 'Network error. Please check your connection and try again.';
-            }
-            setMessage(friendlyError);
-            setType("Error");
-        }
+    const handleGoogleSignin = () => {
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                setMessage("Sign up with Google successful");
+                setType("Success");
+                redirectAfterDelay('/background', 2);
+            }).catch((error) => {
+                // error messages for failure
+                let friendlyError = 'Sign up with Google failed';
+                if (error.code === 'auth/popup-closed-by-user') {
+                    friendlyError = 'Google sign-up popup was closed. Please try again.';
+                } else if (error.code === 'auth/popup-blocked') {
+                    friendlyError = 'Google sign-up popup was blocked. Please allow popups and try again.';
+                } else if (error.code === 'auth/cancelled-popup-request') {
+                    friendlyError = 'Google sign-up was cancelled. Please try again.';
+                } else if (error.code === 'auth/network-request-failed') {
+                    friendlyError = 'Network error. Please check your connection and try again.';
+                }
+                setMessage(friendlyError);
+                setType("Error");
+            });
     };
 
     return (
