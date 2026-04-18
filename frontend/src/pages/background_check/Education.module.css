@@ -1,0 +1,220 @@
+.education {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.educationContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 2rem;
+}
+
+.educationCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  width: 100%;
+  max-width: 550px;
+}
+
+.errorMessage {
+  margin: 0 0 1.5rem 0;
+  padding: 0.75rem 1rem;
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+  margin: 0 0 2rem;
+  line-height: 1.6;
+}
+
+.autocompleteContainer {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #374151;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0084ff;
+  box-shadow: 0 0 0 2px rgba(0, 132, 255, 0.1);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropdownItem {
+  padding: 0.75rem 1rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  font-size: 0.95rem;
+}
+
+.dropdownItem:hover {
+  background-color: #f0f9ff;
+  color: #0084ff;
+}
+
+.dropdownItem:active {
+  background-color: #e0f2fe;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.backBtn,
+.nextBtn {
+  flex: 1;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.backBtn {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+}
+
+.backBtn:hover {
+  background-color: #e5e7eb;
+}
+
+.nextBtn {
+  background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+  color: white;
+}
+
+.nextBtn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .educationCard {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    margin: 0 0 1.5rem;
+  }
+
+  .input {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9rem;
+  }
+
+  .dropdown {
+    max-height: 200px;
+  }
+
+  .dropdownItem {
+    padding: 0.6rem 0.875rem;
+    font-size: 0.9rem;
+  }
+
+  .buttonContainer {
+    gap: 0.75rem;
+  }
+
+  .backBtn,
+  .nextBtn {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .educationContent {
+    padding: 1rem;
+  }
+
+  .educationCard {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .input {
+    padding: 0.7rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .dropdown {
+    max-height: 180px;
+  }
+
+  .dropdownItem {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .buttonContainer {
+    gap: 0.5rem;
+  }
+
+  .backBtn,
+  .nextBtn {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}

@@ -37,7 +37,7 @@ export default function Signup() {
 
     // Validate password: min 8 chars, 1 uppercase, 1 number
     const validatePassword = (password) => {
-        const passRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+        const passRegex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
         return passRegex.test(password);
     };
 
@@ -74,7 +74,7 @@ export default function Signup() {
 
         // validate password
         if (!validatePassword(pass)) {
-            setMessage("Password must be at least 8 characters with 1 uppercase letter and 1 number");
+            setMessage("Password must be at least 6 characters with 1 uppercase letter and 1 number");
             setType("Error");
             return;
         }

@@ -31,7 +31,7 @@ export default function Signin() {
         // for now just redirect
         setMessage('Sign in successful');
         setType('Success');
-        redirectAfterDelay('/background', 2);
+        redirectAfterDelay('/dashboard', 2);
     };
 
     const handleGoogleSignin = () => {
@@ -39,7 +39,7 @@ export default function Signin() {
             .then((result) => {
                 setMessage("Sign in with Google successful");
                 setType("Success");
-                redirectAfterDelay('/background', 2);
+                redirectAfterDelay('/dashboard', 2);
             }).catch((error) => {
                 // error messages for failure
                 let friendlyError = 'Sign in with Google failed';

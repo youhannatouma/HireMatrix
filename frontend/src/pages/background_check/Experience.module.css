@@ -1,0 +1,210 @@
+.experience {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.experienceContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 2rem;
+}
+
+.experienceCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  width: 100%;
+  max-width: 550px;
+}
+
+.errorMessage {
+  margin: 0 0 1.5rem 0;
+  padding: 0.75rem 1rem;
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+  margin: 0 0 2rem;
+  line-height: 1.6;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #ffffff;
+}
+
+.option:hover {
+  border-color: #bfdbfe;
+  background-color: #f0f9ff;
+}
+
+.option input[type="radio"]:checked + .optionLabel {
+  color: #0084ff;
+  font-weight: 600;
+}
+
+.radioInput {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.75rem;
+  cursor: pointer;
+  accent-color: #0084ff;
+}
+
+.optionLabel {
+  font-size: 0.95rem;
+  color: #374151;
+  cursor: pointer;
+  user-select: none;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.backBtn,
+.nextBtn {
+  flex: 1;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.backBtn {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+}
+
+.backBtn:hover {
+  background-color: #e5e7eb;
+}
+
+.nextBtn {
+  background: linear-gradient(135deg, #0084ff 0%, #0056b3 100%);
+  color: white;
+}
+
+.nextBtn:hover {
+  opacity: 0.9;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .experienceCard {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    margin: 0 0 1.5rem;
+  }
+
+  .optionsList {
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .option {
+    padding: 0.875rem;
+  }
+
+  .radioInput {
+    width: 16px;
+    height: 16px;
+  }
+
+  .optionLabel {
+    font-size: 0.9rem;
+  }
+
+  .buttonContainer {
+    gap: 0.75rem;
+  }
+
+  .backBtn,
+  .nextBtn {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experienceContent {
+    padding: 1rem;
+  }
+
+  .experienceCard {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .optionsList {
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .option {
+    padding: 0.75rem;
+  }
+
+  .radioInput {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+  }
+
+  .optionLabel {
+    font-size: 0.85rem;
+  }
+
+  .buttonContainer {
+    gap: 0.5rem;
+  }
+
+  .backBtn,
+  .nextBtn {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}

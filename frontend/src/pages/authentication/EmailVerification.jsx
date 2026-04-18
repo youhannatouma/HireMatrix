@@ -20,6 +20,13 @@ export default function EmailVerification() {
 
     const RESEND_COOLDOWN_MS = 15 * 60 * 1000; // 15 minutes
 
+    // For signin: redirect to dashboard after user signs in following password reset
+    useEffect(() => {
+        if (page === 'signin' && auth.currentUser && isSubmitted) {
+            navigate('/dashboard');
+        }
+    }, [page, isSubmitted, navigate]);
+
     // For signup: check for email verification
     useEffect(() => {
         if (page === 'signup') {
