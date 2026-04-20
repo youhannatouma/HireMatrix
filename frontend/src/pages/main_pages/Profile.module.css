@@ -1,0 +1,161 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.profileContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 2rem;
+}
+
+.profileCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  padding: 2rem;
+  width: 100%;
+  max-width: 920px;
+}
+
+.profileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.overline {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6366f1;
+}
+
+.profileTitle {
+  margin: 0;
+  font-size: 2rem;
+  color: #111827;
+}
+
+.profileDescription {
+  margin: 0.75rem 0 0;
+  color: #4b5563;
+  max-width: 720px;
+  line-height: 1.6;
+}
+
+.profileButton {
+  padding: 0.85rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.profileButton:hover {
+  background: #4338ca;
+}
+
+.section {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.sectionText {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.detailItem {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.detailLabel {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+}
+
+.detailValue {
+  margin: 0;
+  color: #111827;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.actionLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.secondaryButton {
+  padding: 0.85rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.secondaryButton:hover {
+  background: #f8fafc;
+  border-color: #c7d2fe;
+}
+
+@media (max-width: 768px) {
+  .profileCard {
+    padding: 1.5rem;
+  }
+
+  .profileHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+}

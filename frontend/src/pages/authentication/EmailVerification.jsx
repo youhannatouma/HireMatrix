@@ -2,7 +2,7 @@ import styles from './EmailVerification.module.css';
 import Logo from '../../components/Logo.jsx';
 import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { auth } from './firebase_config';
+import { auth, firebaseIsConfigured } from './firebase_config';
 import { reload, sendEmailVerification, sendPasswordResetEmail } from 'firebase/auth';
 
 export default function EmailVerification() {
@@ -22,6 +22,10 @@ export default function EmailVerification() {
 
     // For signin: redirect to dashboard after user signs in following password reset
     useEffect(() => {
+        if (!firebaseIsConfigured) {
+            return;
+        }
+
         if (page === 'signin' && auth.currentUser && isSubmitted) {
             navigate('/dashboard');
         }
@@ -29,6 +33,11 @@ export default function EmailVerification() {
 
     // For signup: check for email verification
     useEffect(() => {
+        if (!firebaseIsConfigured) {
+            setMessage('Firebase is not configured. Please add your Firebase credentials in frontend/.env.');
+            return;
+        }
+
         if (page === 'signup') {
             const userEmail = auth.currentUser?.email;
             setEmail(userEmail);
@@ -54,6 +63,11 @@ export default function EmailVerification() {
 
     const checkEmailVerification = async () => {
         try {
+            if (!firebaseIsConfigured) {
+                setMessage('Firebase is not configured. Please add your Firebase credentials in frontend/.env.');
+                return;
+            }
+
             if (!auth.currentUser) {
                 setMessage('No user found. Please sign up first.');
                 return;
