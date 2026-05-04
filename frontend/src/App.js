@@ -17,6 +17,7 @@ import ResumeUpload from './pages/background_check/ResumeUpload.jsx';
 import Message from './pages/background_check/Welcome.jsx';
 import Profile from './pages/main_pages/profile.jsx';
 import Settings from './pages/main_pages/settings.jsx';
+import CvAnalysis from './pages/main_pages/CvAnalysis.jsx';
 
 export default function App() {
   return (
@@ -44,6 +45,7 @@ export default function App() {
         <Route path='/dashboard' element={<Profile />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/settings' element={<Settings />} />
+        <Route path='/cv-analysis' element={<CvAnalysis />} />
       </Routes>
     </div>
   );
