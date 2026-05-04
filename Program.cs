@@ -1,7 +1,12 @@
+using HireMatrix.Interface;
+using HireMatrix.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services
 builder.Services.AddControllers();
+builder.Services.AddHttpClient<IAiService, AiService>();
+builder.Services.AddSingleton<JobMatchingService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReact",
@@ -16,9 +21,8 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/api/error");
     app.UseHsts();
+    app.UseHttpsRedirection();
 }
-
-app.UseHttpsRedirection();
 app.UseCors("AllowReact");
 app.UseDefaultFiles();
 app.UseStaticFiles();
