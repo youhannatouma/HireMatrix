@@ -5,13 +5,19 @@ namespace HireMatrix.Services;
 public class JobMatchingService
 {
     //Calculate match score and identify missingor matched skills per job
-    public List<JobMatchResultDto> MatchJobs(ExtractedCvDataDto cvData, List<JobDto> jobs)
+    public List<JobMatchResultDto> MatchJobs(ExtractedCvDataDto cvData, List<JobDto> jobs, string? locationFilter = null)
     {
+        var filteredJobs = string.IsNullOrWhiteSpace(locationFilter)
+            ? jobs
+            : jobs.Where(j =>
+                j.Location.Contains(locationFilter, StringComparison.OrdinalIgnoreCase) ||
+                j.Location.Equals("Remote", StringComparison.OrdinalIgnoreCase))
+              .ToList();
         var cvSkillsLower = cvData.Skills
             .Select(s => s.ToLowerInvariant())
             .ToHashSet();
 
-        var results = jobs.Select(job =>
+        var results = filteredJobs.Select(job =>
         {
             var matched = job.RequiredSkills
                 .Where(s => cvSkillsLower.Contains(s.ToLowerInvariant()))
@@ -58,11 +64,16 @@ public class JobMatchingService
             {
                 Skill = g.Key,
                 JobsRequiringIt = g.Count()
+                LearningResourceUrl = GetLearningResourceUrl(g.Key)
             })
             .OrderByDescending(s => s.JobsRequiringIt)
             .Take(5)
             .ToList();
 
         return new SkillGapReportDto { TopMissingSkills = topMissingSkills };
+    }
+   private static string GetLearningResourceUrl(string skill)
+    {
+        return $"https://www.udemy.com/courses/search/?q={Uri.EscapeDataString(skill)}";
     }
 }

@@ -4,4 +4,5 @@ public class MatchJobsRequestDto
 {
     public ExtractedCvDataDto CvData { get; set; } = new();
     public List<JobDto>? Jobs { get; set; }
+    public string? LocationFilter { get; set; }
 }

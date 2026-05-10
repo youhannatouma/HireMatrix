@@ -71,7 +71,7 @@ public class CvController : ControllerBase
             ? request.Jobs
             : GetMockJobs();
 
-        var results = _matchingService.MatchJobs(request.CvData, jobs);
+        var results = _matchingService.MatchJobs(request.CvData, jobs, request.LocationFilter);
         return Ok(results);
     }
 

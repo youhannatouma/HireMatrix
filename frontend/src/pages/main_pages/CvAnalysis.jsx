@@ -9,6 +9,7 @@ export default function CvAnalysis() {
     const navigate = useNavigate();
 
     const [file, setFile] = useState(null);
+    const [locationFilter, setLocationFilter] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -57,7 +58,7 @@ export default function CvAnalysis() {
             const matchRes = await fetch(`${BACKEND}/api/cv/match-jobs`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ cvData: extracted }),
+                body: JSON.stringify({ cvData: extracted, locationFilter: locationFilter.trim() || null }),
             });
 
             if (!matchRes.ok) {
@@ -120,6 +121,17 @@ export default function CvAnalysis() {
                         </span>
                         <span className={styles.uploadHint}>PDF or TXT, max 5MB</span>
                     </label>
+
+                    <div className={styles.locationRow}>
+                        <label className={styles.locationLabel}>Location filter (optional)</label>
+                        <input
+                            type="text"
+                            placeholder="e.g. Beirut, Remote"
+                            value={locationFilter}
+                            onChange={(e) => setLocationFilter(e.target.value)}
+                            className={styles.locationInput}
+                        />
+                    </div>
 
                     {error && <p className={styles.error}>{error}</p>}
 
@@ -186,9 +198,21 @@ export default function CvAnalysis() {
                                 {skillGap.topMissingSkills.map((item, i) => (
                                     <div key={i} className={styles.gapItem}>
                                         <span className={styles.gapSkill}>{item.skill}</span>
-                                        <span className={styles.gapCount}>
-                                            Required by {item.jobsRequiringIt} job{item.jobsRequiringIt > 1 ? 's' : ''}
-                                        </span>
+                                        <div className={styles.gapRight}>
+                                            <span className={styles.gapCount}>
+                                                Required by {item.jobsRequiringIt} job{item.jobsRequiringIt > 1 ? 's' : ''}
+                                            </span>
+                                            {item.learningResourceUrl && (
+                                                <a
+                                                    href={item.learningResourceUrl}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className={styles.learnLink}
+                                                >
+                                                    Learn →
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
