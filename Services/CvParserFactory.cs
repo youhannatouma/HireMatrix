@@ -20,6 +20,7 @@ namespace HireMatrix.Services
                 case ".html":
                     break;
                 case ".txt":
+                    return new TxtParser();
                     break;
                 default:
                     return null;

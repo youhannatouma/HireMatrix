@@ -3,7 +3,7 @@ import Logo from '../../components/Logo.jsx';
 import { useRef, useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, googleProvider } from './firebase_config';
+import { auth, googleProvider, firebaseIsConfigured } from './firebase_config';
 import { signInWithPopup, sendEmailVerification } from 'firebase/auth';
 
 // To be implemented:
@@ -91,6 +91,12 @@ export default function Signup() {
             return;
         }
 
+        if (!firebaseIsConfigured) {
+            setMessage('Firebase is not configured. Please add your Firebase credentials in frontend/.env.');
+            setType('Error');
+            return;
+        }
+
         createUserWithEmailAndPassword(auth, email, pass)
             .then((userCredential) => {
                 // Signed up
@@ -123,6 +129,12 @@ export default function Signup() {
     };
 
     const handleGoogleSignin = () => {
+        if (!firebaseIsConfigured) {
+            setMessage('Firebase is not configured. Please add your Firebase credentials in frontend/.env.');
+            setType('Error');
+            return;
+        }
+
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 setMessage("Sign up with Google successful");

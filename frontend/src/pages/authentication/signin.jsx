@@ -2,7 +2,7 @@ import styles from './Signin.module.css';
 import Logo from '../../components/Logo.jsx';
 import { useRef, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { googleProvider, auth } from './firebase_config';
+import { googleProvider, auth, firebaseIsConfigured } from './firebase_config';
 import { signInWithPopup } from 'firebase/auth';
 
 // To be implemented
@@ -35,6 +35,12 @@ export default function Signin() {
     };
 
     const handleGoogleSignin = () => {
+        if (!firebaseIsConfigured) {
+            setMessage('Firebase is not configured. Please add your Firebase credentials in frontend/.env.');
+            setType('Error');
+            return;
+        }
+
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 setMessage("Sign in with Google successful");
